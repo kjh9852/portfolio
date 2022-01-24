@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야석</title>
+    <style>
+        body {display: flex; justify-content: center; align-items: center; height: 100vh; transition:all .6s ease-in-out;}
+        .red {background: #ff0000;}
+        .green {background: #73ff00;}
+        .sky {background: #00c3ff;}
+        .blue {background: #7700ff;}
+        .pink {background: #ff0095;}
+        .color_pallet {display: flex; justify-content: center; align-items: center;}
+        .color_pallet .color {display: flex; margin-left: 10px; width: 50px; height: 50px; border-radius: 50%; background: #ff0000; cursor: pointer;}
+        .color_pallet .color:nth-child(2) {background: #73ff00;}
+        .color_pallet .color:nth-child(3) {background: #00c3ff;}
+        .color_pallet .color:nth-child(4) {background: #7700ff;}
+        .color_pallet .color:nth-child(5) {background: #ff0095;}
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="color_pallet">
+        <div class="color" data-color = "#ff0000" data-class = "red"></div>
+        <div class="color" data-color = "#73ff00" data-class = "green"></div>
+        <div class="color" data-color = "#00c3ff" data-class = "sky"></div>
+        <div class="color" data-color = "#7700ff" data-class = "blue"></div>
+        <div class="color" data-color = "#ff0095" data-class = "pink"></div>
+    </div>
+    <script>
+        $(function(){
+            $(".color_pallet").find(".color").each(function(){
+            var item = $(this);
+            var body = $('body');
+            var dataColor = $(this).attr('data-color');
+            var dataClass = $(this).attr('data-class');
+            console.log(dataColor);
+            item.mouseover(function(){
+                body.addClass(dataClass);
+            });
+            item.mouseleave(function(){
+                body.removeClass(dataClass);
+            });
+        });
+    });
+    </script>
+</body>
+</html>
