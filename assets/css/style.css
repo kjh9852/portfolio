@@ -15,6 +15,10 @@ body {background: #34488f; font-family:'Nanum Gothic', sans-serif; transition: .
 body.before-load{
     overflow: hidden;
 }
+body.start {
+    overflow: hidden;
+    transition: .3s;
+}
 .load {
     display: flex;
     align-items: center;
