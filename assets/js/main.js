@@ -2,7 +2,7 @@ $(function () {
     // var excuted = false;
     var circle = $('.circle');
 
-    var menu_btn = $(".nav > ul > li");
+    var menu_btn = $(".nav > ul > li") && $('#mNav-menu > ul > li');
     menu_btn.click(function (e) {
         e.preventDefault();
         var target = $(this);
@@ -10,6 +10,20 @@ $(function () {
         var section = $("section").eq(index);
         var offset = section.offset().top;
         $("html,body").animate({ scrollTop: offset }, 1500, "easeInOutExpo");
+    });
+
+    document.querySelector('.mobile').addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileBtn = document.querySelector('.mobile');
+        mNavMenu = document.querySelector('#mNav-menu');
+        mNavMenu.classList.add('active');
+        mobileBtn.style.opacity = 0;
+    });
+
+    document.querySelector('.mNav-closeBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#mNav-menu').classList.remove('active');
+        mobileBtn.style.opacity = 1;
     });
 
     circle.find(".water").each(function () {
@@ -41,54 +55,6 @@ $(function () {
 
 
     /*  SCENE 1 */
-    function scrollTrigger() {
-        gsap.registerPlugin(ScrollTrigger);
-        let speed = 100;
-        ScrollTrigger.matchMedia({
-            "(min-width: 800px)": function () {
-                let scene1 = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: scene1,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "50% 20%",
-                    scrub: 3,
-                    // markers: true
-                });
-                scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
-                scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
-                scene1.to(".tit", { y: 10 * speed }, 0)
-            },
-            "(max-width: 799px)": function () {
-                let mobile_scene = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: mobile_scene,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "60% 20%",
-                    // markers: true,
-                    scrub: 3
-                });
-                mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
-                mobile_scene.to(".tit", { y: 500 }, 0)
-            },
-            "all": function () {
-
-            }
-        });
-}
 function startAnimation() {
     let start = 0;
     gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
@@ -143,8 +109,58 @@ function startAnimation() {
         var water = $('.water');
         let wSize = $(window).width();
 
+    function scrollTrigger(){
+        gsap.registerPlugin(ScrollTrigger);
+        let speed = 100;
+        ScrollTrigger.matchMedia({
+            "(min-width: 800px)": function () {
+                let scene1 = gsap.timeline();
+                ScrollTrigger.create({
+                    animation: scene1,
+                    reversed: true,
+                    paused: true,
+                    trigger: "#main_title",
+                    start: "5% top",
+                    end: "50% 20%",
+                    scrub: 3,
+                    // markers: true
+                });
+                scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
+                scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
+                scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
+                scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
+                scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
+                scene1.to(".tit", { y: 10 * speed }, 0)
+            },
+
+            "(max-width: 799px)": function () {
+                let mobile_scene = gsap.timeline();
+                ScrollTrigger.create({
+                    animation: mobile_scene,
+                    reversed: true,
+                    paused: true,
+                    trigger: "#main_title",
+                    start: "5% top",
+                    end: "60% 20%",
+                    // markers: true,
+                    scrub: 3
+                });
+                mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
+                mobile_scene.to(".tit", { y: 500 }, 0)
+            },
+
+            "all": function () {
+
+            }
+        });
+    };
         $(window).scroll(function () {
-            let wScroll = $(this).scrollTop();
+            let wScroll = $(window).scrollTop();
             if (wScroll >= chartOST) {
                 if (!charts.hasClass('active')) {
                     animateChart();
@@ -155,7 +171,7 @@ function startAnimation() {
                             chart.addClass('moveup');
                             chart.each(function (i) {
                                 index += i;
-                                chart.eq(i).css({ animationDelay: +index + 's' })
+                                chart.eq(i).css({ animationDelay: + index + 's' })
                             });
                         }
                     }, 2100);
@@ -185,8 +201,6 @@ function startAnimation() {
                 setTimeout(function () {
                     $(".title_ani").css("background", "#8edccd");
                 }, 500);
-                console.log(wScroll);
-
             }
             if (wSize > 980 && wScroll < blackTop + 20) {
                 gsap.to(black, { fill: "#00181c", delay: 0.3 });
@@ -243,32 +257,32 @@ function startAnimation() {
                 text.css({ "transform": "translateX(0px)", "opacity": "1" })
             }
 
-            if (wScroll >= siteWrap1OST -200) {
+            if (wScroll >= siteWrap1OST -300) {
                 $('.site_wrap:nth-of-type(1) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(1) > .site_desc').css({ "transform": "translateX(-500px)", "opacity": "0" });
             }
-            if (wScroll >= siteWrap2OST - 200) {
+            if (wScroll >= siteWrap2OST - 300) {
                 $('.site_wrap:nth-of-type(2) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(2) > .site_desc').css({ "transform": "translateX(500px)", "opacity": "0" });
             }
-            if (wScroll >= siteWrap3OST - 200) {
+            if (wScroll >= siteWrap3OST - 300) {
                 $('.site_wrap:nth-of-type(3) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(3) > .site_desc').css({ "transform": "translateX(-500px)", "opacity": "0" });
             }
-            if (wScroll >= siteWrap4OST - 600) {
+            if (wScroll >= siteWrap4OST - 300) {
                 $('.site_wrap:nth-of-type(4) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(4) > .site_desc').css({ "transform": "translateX(500px)", "opacity": "0" });
             }
-            if (wScroll >= siteWrap5OST - 600) {
+            if (wScroll >= siteWrap5OST - 300) {
                 $('.site_wrap:nth-of-type(5) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(5) > .site_desc').css({ "transform": "translateX(-500px)", "opacity": "0" });
             }
-            if (wScroll >= siteWrap6OST - 600) {
+            if (wScroll >= siteWrap6OST - 300) {
                 $('.site_wrap:nth-of-type(6) > .site_desc').css({ "transform": "translateX(0px)", "opacity": "1" });
             } else {
                 $('.site_wrap:nth-of-type(6) > .site_desc').css({ "transform": "translateX(500px)", "opacity": "0" });
@@ -296,7 +310,7 @@ function startAnimation() {
                 $(".sec5").find(".animation_item").css("left", + 0 + "px")
             }
 
-            if (wScroll >= scriptOST - 450) {
+            if (wScroll >= scriptOST) {
                 $("body").css("background", "#0d173c");
             } else {
                 $("body").css("background", "#34488f");
@@ -337,6 +351,7 @@ function startAnimation() {
             }
 
         });
+        scrollTrigger();
     }
 
     $(document).ready(function ($) {
@@ -354,7 +369,6 @@ function startAnimation() {
             setTimeout(() => {
                 scrollTo(0, 0);
                 startAnimation();
-                scrollTrigger();
             }, 300);
 
             setTimeout(() => {
@@ -362,6 +376,10 @@ function startAnimation() {
             }, 3000);
         }
         scrollAnimation();
+
+        // window.addEventListener('resize', () => {
+        //         window.location.reload();
+        // });
     });
 
     // $(window).resize(function(){
