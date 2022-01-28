@@ -377,9 +377,9 @@ function startAnimation() {
         }
         scrollAnimation();
 
-        // window.addEventListener('resize', () => {
-        //         window.location.reload();
-        // });
+        window.addEventListener('resize', () => {
+                window.location.reload();
+        });
     });
 
     // $(window).resize(function(){

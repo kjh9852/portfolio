@@ -115,10 +115,12 @@ body.scroll #main_title{
 #mNav .mobile span::after {position: absolute; content: ''; top: 11px; width: 44px; height: 5px; background: #000;}
 
 /* mNav Menu */
-#mNav-menu {position: fixed; top: 0; right: -40%; width: 30%; height: 100%; background: #ededed; transition: .5s; z-index: 10000;}
+#mNav-menu {position: fixed; top: 0; right: -100%; width: 70%; height: 100%; background: #ededed; transition: .5s; z-index: 10000;}
+#mNav-menu.active::before {position: absolute; top: 0; right: 0; content: ''; width: 1920px; height: 937px; background: #000; opacity: .7; z-index: -1;}
+#mNav-menu.active::after {position: absolute; top: 0; right: 0; content: ''; width: 100%; height: 100%; background: #ededed; z-index: -1; }
 #mNav-menu.active {right: 0;}
 #mNav-menu ul {margin-top: 120px;}
-#mNav-menu ul li {margin-top: 75px;}
+#mNav-menu ul li {margin-top: 35px;}
 #mNav-menu ul li:nth-child(1) {margin-top: 0;}
 #mNav-menu ul li a {padding: 10px; margin-left: 20px; font-size: 2.3vw;}
 .mNav-closeBtn {position: absolute; top: 0; right: 0;}
