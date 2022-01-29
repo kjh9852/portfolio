@@ -377,8 +377,8 @@ function startAnimation() {
         }
         scrollAnimation();
 
-        window.addEventListener('resize', () => {
-                window.location.reload();
+        window.addEventListener('orientationchange', () => {
+            window.location.reload();
         });
     });
 
