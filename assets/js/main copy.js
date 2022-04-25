@@ -396,10 +396,6 @@ function startAnimation() {
             });
         }
     }
-
-    window.addEventListener('resize', () => {
-        window.location.reload();
-    });
     window.addEventListener('load', () => {
         document.body.classList.add('start');
         document.body.classList.remove("before-load");
