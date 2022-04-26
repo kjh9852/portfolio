@@ -411,7 +411,8 @@ body.scroll #main_title{
 }
 .sec4 .work_preview > div {
     position: absolute;
-    top: 0; left: 0;
+    top: 0; left: 50%;
+    transform: translate(-50%,0);
     display: flex;
     align-items: center;
     justify-content: center;
