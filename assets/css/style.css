@@ -998,7 +998,6 @@ body.scroll #main_title{
     .work_bg {top: 410vh;}
     .moutain_black {bottom: -125%;}
 }
-
 @media (max-width: 1180px) {
     #mNav {display: block;}
     .nav {display: none;}
@@ -1015,7 +1014,11 @@ body.scroll #main_title{
     }
 
 }
-
+@media (max-width: 1024px) {
+    .sec4 .work_box li {
+        width: 100px; height: 100px;
+    }
+}
 @media (max-width :980px) {
     #header {height: 65px;}
     #header::before {height: 50px;}

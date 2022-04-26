@@ -334,7 +334,7 @@ body.scroll #main_title{
 .sec4 .work_box {
     position: relative;
     max-width: 1200px;
-    height: 600px;
+    height: 1000px;
     margin: 0 auto;
     z-index: 2;
 }
@@ -353,8 +353,11 @@ body.scroll #main_title{
     transform: translateY(0px);
 }
 .sec4 .work_box ul {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     padding-top: 100px;
+    margin: 0 auto;
 }
 .sec4 .work_box li {
     display: inline-block;
@@ -398,6 +401,7 @@ body.scroll #main_title{
     width: 100%; height: 100%;
     opacity: 0;
     visibility: hidden;
+    background: rgba(0,0,0,0.9);
     transition: .3s ease-in-out;
     z-index: 3;
 }
@@ -408,13 +412,14 @@ body.scroll #main_title{
 .sec4 .work_preview > div {
     position: absolute;
     top: 0; left: 0;
-    min-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 250px;
     width: 100%;
     height: 100%;
     color: #fff;
-    background: rgba(0,0,0,0.9);
     transition: .3s ease-in-out;
     box-sizing: border-box;
     opacity: 0;
@@ -425,11 +430,6 @@ body.scroll #main_title{
     visibility: visible;
 }
 .sec4 .work_preview div .preview_title {
-    position: absolute;
-    top: 50%; left: 0;
-    margin-left: 15%;
-    transform: translate(0,-70%);
-    padding-top: 100px;
 }
 .sec4 .work_preview div .preview_title h1 {
     font-weight: 300;
@@ -442,7 +442,7 @@ body.scroll #main_title{
     font-size: 24px;
 }
 .sec4 .work_preview div .preview_title a {
-    display: block;
+    display: inline-block;
     text-align: center;
     line-height: 50px;
     width: 130px; height: 50px;
@@ -458,10 +458,6 @@ body.scroll #main_title{
     line-height: 30px;
 }
 .sec4 .work_preview div img {
-    position: absolute;
-    margin-right: 5%;
-    top: 50%; right: 0;
-    transform: translate(0,-50%);
     width: 50%;
 }
 .sec4 .work_preview div .close {
@@ -512,6 +508,9 @@ body.scroll #main_title{
     .skil_bg {top: 310vh;}
     .work_bg {top: 410vh;}
     .moutain_black {bottom: -125%;}
+    .sec4 .work_preview div .close {
+        left: 50px;
+    }
 }
 
 @media (max-width: 1180px) {
@@ -528,9 +527,28 @@ body.scroll #main_title{
     .sec4 .site .site_wrap {
         height: 70vh;
     }
+    .sec4 .work_preview > div {
+        flex-direction: column-reverse;
+    }
+    .sec4 .work_preview div .preview_title {
+        text-align: center;
+    }
+    .sec4 .work_preview div .preview_text {
+        margin-bottom: 50px;
+    }
 
 }
-
+@media (max-width: 1024px) {
+    .sec4 .work_box ul {
+        padding: 100px 80px;
+    }
+    .sec4 .work_box li {
+        width: 150px; height: 150px;
+    }
+    .sec4 .work_box li a img {
+        width: 90px; height: 90px;
+    }
+}
 @media (max-width :980px) {
     #header {height: 65px;}
     #header::before {height: 50px;}
@@ -561,36 +579,18 @@ body.scroll #main_title{
     .sec3 .skil_info .chart .bg_bubble {width: 180px; height: 180px;}
     .sec3 .skil_info .chart:nth-child(4) {margin-top: 10%;}
     .sec3 .skil_info .chart:nth-child(5) {margin-top: 10%;}
-    .sec4 .site .site_wrap {
-        flex-direction: column;
-        height: 100vh;
+    .sec4 .work_preview div .preview_title h1 {
+        font-size: 24px;
     }
-    .sec4 .site .site_wrap:nth-child(2n) {
-        flex-direction: column;
-    }
-    .sec4 .site .site_wrap .site_desc {
-        align-items: center;
-        height: 75vh;
-        margin-top: 25px;
-        text-align: center;
-    }
-    .sec4 .site .site_wrap:nth-child(2n) .site_desc {
-        align-items: center;
-        height: 75vh;
-    }
-    .sec4 .site .site_wrap .site_desc h2{
-        margin-top: 0;
-    }
-    .sec4 .site .site_wrap .site_desc p {
-        margin-top: 10px;
+    .sec4 .work_preview div .preview_title span {
         font-size: 18px;
     }
-    .sec4 .site .site_wrap .site_desc .view_button {
-        bottom: 30%;
-    }
-    .sec4 .site .site_wrap .site_desc .view_button .view_site a {
-        padding: 10px 15px;
+    .sec4 .work_preview div .preview_text p {
         font-size: 16px;
+        line-height: 24px;
+    }
+    .sec4 .work_preview div img {
+        margin-bottom: 50px;
     }
     .sec5 .animation_item .animation_box .ani_img {
         width: 400px;
@@ -620,7 +620,18 @@ body.scroll #main_title{
         justify-content: flex-start;
     }
 }
-
+@media (max-width :800px) {
+    .sec4 .work_box ul {
+        max-width: 670px;
+        box-sizing: border-box;
+    }
+    .sec4 .work_box li:nth-child(2n) {
+        margin-right: 0;
+    }
+    .sec4 .work_box li:nth-child(4n) {
+        margin-right: 0;
+    }
+}
 @media (max-width :760px) {
     .sec1 .tit {
          margin-left: 0; padding-top: 155px;
@@ -739,6 +750,37 @@ body.scroll #main_title{
     }
     .sec4 .site .site_wrap .site_desc h2 {
         font-size: 24px;
+    }
+    .sec4 .work_wrap > ul{
+        overflow: hidden;
+    }
+    .sec4 .work_wrap > ul li {
+        float: left;
+        margin-right: 0;
+        width: 33.14%;
+        border-radius: 0;
+    }
+    .sec4 .work_wrap > ul li a {
+        width: 100%;
+    }
+    .sec4 .work_wrap > ul li + li {
+        border-left: 1px solid #888;
+    }
+    .sec4 .work_box ul {
+        padding: 100px 0;
+    }
+    .sec4 .work_preview div img {
+        margin-bottom: 30px;
+    }
+    .sec4 .work_preview div .preview_title h1 {
+        font-size: 16px;
+    }
+    .sec4 .work_preview div .preview_title span {
+        font-size: 14px;
+    }
+    .sec4 .work_preview div .preview_text p {
+        font-size: 12px;
+        line-height: 18px;
     }
     
 }
