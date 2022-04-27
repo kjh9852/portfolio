@@ -29,7 +29,7 @@ $(function () {
         document.querySelector('#mNav-menu').classList.remove('active');
         mobileBtn.style.opacity = 1;
     });
-
+    
     circle.find(".water").each(function () {
         var item = $(this).parent();
         console.log(item);
@@ -258,7 +258,7 @@ function startAnimation() {
                 sec5.removeClass("active");
                 $(".animation_bg").removeClass("active");
             }
-            console.log(wScroll,animationOST);
+            // console.log(wScroll,animationOST);
 
 
             let offsetLeft = (wScroll - animation.offset().top)
@@ -383,6 +383,15 @@ function startAnimation() {
         }
     }
 
+    const sec05 = document.querySelector('.sec5');
+    const aniItem = document.querySelector('.animation_item');
+    let aniItemHeight = 0;
+    
+    function sec05Height() {
+        aniItemHeight += aniItem.scrollWidth + window.innerHeight ;
+        sec05.style.height = `${aniItemHeight}px`;
+        console.log(aniItemHeight);
+    }
     function tabBtn(){
         for (let i = 0; i < workBtn.length; i++){
             workBtn[i].addEventListener('click', (e) => {
@@ -425,10 +434,14 @@ function startAnimation() {
         scrollAnimation();
         navTab(menu_btn);
         navTab(NmenuBtn);
+        sec05Height();
+
         window.addEventListener('orientationchange', () => {
             window.location.reload();
         });
+
     });
+
 
     // $(window).resize(function(){
     //     let wSize = $(window).width();
