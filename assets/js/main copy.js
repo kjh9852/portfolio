@@ -388,7 +388,7 @@ function startAnimation() {
     let aniItemHeight = 0;
     
     function sec05Height() {
-        aniItemHeight += aniItem.scrollWidth + window.innerHeight ;
+        aniItemHeight += aniItem.scrollWidth + (window.innerHeight*1.5) ;
         sec05.style.height = `${aniItemHeight}px`;
         console.log(aniItemHeight);
     }
