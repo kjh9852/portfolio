@@ -1757,23 +1757,23 @@ body.scroll #main_title {
     }
 
     .sec5 .animation_item .animation_box:nth-of-type(2) {
-        left: 30%;
+        left: 35%;
     }
 
     .sec5 .animation_item .animation_box:nth-of-type(3) {
-        left: 50%;
+        left: 60%;
     }
 
     .sec5 .animation_item .animation_box:nth-of-type(4) {
-        left: 70%;
+        left: 85%;
     }
 
     .sec5 .animation_item .animation_box:nth-of-type(5) {
-        left: 90%;
+        left: 110%;
     }
 
     .sec5 .animation_item .animation_box:nth-of-type(6) {
-        left: 110%;
+        left: 135%;
     }
     .sec5 .animation_item .animation_box .iframe_box {
         width: 300px; height: 300px;
