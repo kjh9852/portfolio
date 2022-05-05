@@ -135,7 +135,7 @@ body.scroll #main_title {
     height: 200vh;
     /* background-image: linear-gradient(to top, #8edccd 8%,#d5eadb 45%);  */
     background: #8edccd;
-    z-index: 999;
+    z-index: 7;
 }
 
 #about {
@@ -146,7 +146,7 @@ body.scroll #main_title {
     padding-bottom: 100px;
     background: #8edccd;
     transition: all .5s ease-in-out;
-    z-index: 998;
+    z-index: 7;
 }
 
 #skil {
@@ -154,34 +154,36 @@ body.scroll #main_title {
     overflow: hidden;
     top: 0;
     height: 100vh;
-    z-index: 998;
+    z-index: 6;
 }
 
 #work {
     position: relative;
     overflow: hidden;
     padding: 150px 0 0 0;
-    z-index: 998;
+    z-index: 6;
     box-sizing: border-box;
 }
 
 .skil_bg {
     position: absolute;
-    top: 309vh;
+    /* top: 309vh; */
     background: url(../img/gradient_bg.png), #8edccd;
     background-size: cover;
     width: 100%;
     height: 100vh;
+    z-index: 5;
     transition: all .5s ease-in-out;
 }
 
 .work_bg {
     position: absolute;
-    top: 409vh;
+    /* top: 409vh; */
     background: #4481a7;
     width: 100%;
     height: 320vh;
     transition: all .5s ease-in-out;
+    z-index: 5;
 }
 
 .work_bg:before {
@@ -197,7 +199,7 @@ body.scroll #main_title {
 #animation {
     position: relative;
     width: 100%;
-    z-index: 998;
+    z-index: 6;
 }
 
 .animation {
@@ -215,7 +217,9 @@ body.scroll #main_title {
 }
 
 #script {
+    position: relative;
     height: 100vh;
+    z-index: 6;
 }
 
 
@@ -435,7 +439,7 @@ body.scroll #main_title {
 
 /* section1 */
 .title_ani {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -568,6 +572,7 @@ body.scroll #main_title {
     margin-left: 7%;
     padding-top: 155px;
     font-family: 'Playfair Display', serif;
+    transition: .2s;
 }
 
 .sec1 .tit h2 {
@@ -691,7 +696,7 @@ body.scroll #main_title {
 .sec2 .right .title span {
     font-size: 4vw;
     display: block;
-}
+}   
 
 /* ocean */
 #ocean {
@@ -699,7 +704,7 @@ body.scroll #main_title {
     height: 1000vh;
     top: 0;
     position: fixed;
-    z-index: 997;
+    z-index: 5;
 }
 
 #ocean .bubble {
@@ -1040,6 +1045,7 @@ body.scroll #main_title {
     position: absolute;
     visibility: hidden;
     width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     opacity: 0;
@@ -1055,16 +1061,22 @@ body.scroll #main_title {
 
 .sec4 .work_box ul {
     position: relative;
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 20px;
     overflow: hidden;
+    width: 100%;
     text-align: center;
     padding-top: 100px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .sec4 .work_box li {
     display: inline-block;
-    width: 20%;
-    margin-right: 30px;
+    width: 100%;
     text-align: center;
     background: #fff;
     border-radius: 20px;
@@ -1076,7 +1088,12 @@ body.scroll #main_title {
 .sec4 .work_box li:nth-child(4n) {
     margin-right: 0;
 }
-
+.sec4 .work_box div:nth-child(2) li:nth-child(3) {
+    margin-right: 0;
+}
+.sec4 .work_box div:nth-child(2) ul {
+    grid-template-columns: 250px 250px 250px;
+}
 .sec4 .work_box li a {
     display: block;
 }
@@ -1199,7 +1216,6 @@ body.scroll #main_title {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 1500vh;
 }
 
 .sec5 .animation_item {
@@ -1409,12 +1425,12 @@ body.scroll #main_title {
         width: 80%;
     }
 
-    .skil_bg {
+    /* .skil_bg {
         top: 310vh;
-    }
+    } */
 
     .work_bg {
-        top: 410vh;
+        /* top: 410vh; */
     }
 
     .moutain_black {
@@ -1491,8 +1507,11 @@ body.scroll #main_title {
 @media (max-width: 1024px) {
     .sec4 .work_box ul {
         padding: 100px 80px;
+        grid-template-columns: auto auto auto auto;
     }
-
+    .sec4 .work_box div:nth-child(2) ul {
+        grid-template-columns: auto auto auto;
+    }
     .sec4 .work_box li {
         width: 150px;
         height: 150px;
@@ -1550,12 +1569,12 @@ body.scroll #main_title {
         bottom: -118%;
     }
 
-    .skil_bg {
+    /* .skil_bg {
         top: 240vh;
-    }
+    } */
 
     .work_bg {
-        top: 340vh;
+        /* top: 340vh; */
     }
 
     #mNav .mobile {
@@ -1675,8 +1694,11 @@ body.scroll #main_title {
     .sec4 .work_box ul {
         max-width: 670px;
         box-sizing: border-box;
+        grid-template-columns: auto auto;
     }
-
+    .sec4 .work_box div:nth-child(2) ul {
+        grid-template-columns: auto auto;
+    }
     .sec4 .work_box li:nth-child(2n) {
         margin-right: 0;
     }
@@ -1689,7 +1711,7 @@ body.scroll #main_title {
 @media (max-width :760px) {
     .sec1 .tit {
         margin-left: 0;
-        padding-top: 155px;
+        padding-top: 280px;
         width: 100%;
         height: 100%;
     }
@@ -1802,21 +1824,10 @@ body.scroll #main_title {
     .river,
     .moutain_back01,
     .moutain_back02,
-    .moutain_front01 {
-        bottom: 30%;
-    }
-
-    .back_light01 {
-        bottom: 30%;
-    }
-
-    .back_light02 {
-        bottom: 30%;
-    }
-
-    .moutain_black {
-        bottom: -120%;
-    }
+    .moutain_front01,
+    .back_light01,
+    .back_light02 {bottom: 5%;}
+    .moutain_black {bottom: -140%;}
 
     .sec4>h2 {
         font-size: 52px;
@@ -1864,7 +1875,7 @@ body.scroll #main_title {
     }
 
     .moutain_black {
-        bottom: -126%;
+        bottom: -150%;
     }
 
     .sec3 .skil_info .chart {

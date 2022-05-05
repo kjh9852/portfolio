@@ -60,7 +60,6 @@ $(function () {
 
     /*  SCENE 1 */
 function startAnimation() {
-    let start = 0;
     gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".bg_star", { y: -500, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".moutain_back01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
@@ -70,23 +69,26 @@ function startAnimation() {
     gsap.fromTo(".moutain_front01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1 })
     gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
     gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 0.3 })
-    gsap.fromTo(".moutain_black", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1, delay: 1 })
-    ++start;
-    return start;
+    gsap.fromTo(".moutain_black", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1.5, delay: 0.1 }, 1)
 }
     //
 
     function scrollAnimation() {
-        var black = $('.moutain_black');
-        var blackTop = black.offset().top;
+        const black = document.querySelector('.moutain_black');
+        const blackTop = black.offsetTop;
+
         var about = $('#about');
         var aboutOST = about.offset().top;
+
         var work = $('#work');
         var workOST = work.offset().top;
+
         var animation = $('#animation');
         var animationOST = animation.offset().top;
+
         var script = $("#script");
-        var scriptOST = script.offsetTop - window.innerHeight;
+        var scriptOST = script.offset().top; - window.innerHeight;
+
         var title = $('.sec2 > .right > .title');
         var text = $('.sec2 > .right > .text');
         var charts = $('.skil_info');
@@ -99,56 +101,57 @@ function startAnimation() {
         var water = $('.water');
         let wSize = $(window).width();
 
-    function scrollTrigger(){
-        gsap.registerPlugin(ScrollTrigger);
-        let speed = 100;
-        ScrollTrigger.matchMedia({
-            "(min-width: 800px)": function () {
-                let scene1 = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: scene1,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "50% 20%",
-                    scrub: 3,
-                    // markers: true
-                });
-                scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
-                scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
-                scene1.to(".tit", { y: 10 * speed }, 0)
-            },
+        function scrollTrigger(){
+            gsap.registerPlugin(ScrollTrigger);
+            let speed = 100;
+            ScrollTrigger.matchMedia({
+                "(min-width: 800px)": function () {
+                    let scene1 = gsap.timeline();
+                    ScrollTrigger.create({
+                        animation: scene1,
+                        reversed: true,
+                        paused: true,
+                        trigger: "#main_title",
+                        start: "5% top",
+                        end: "50% 20%",
+                        scrub: 3,
+                        // markers: true
+                    });
+                    scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
+                    scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
+                    scene1.to(".tit", { y: 10 * speed }, 0)
+                },
 
-            "(max-width: 799px)": function () {
-                let mobile_scene = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: mobile_scene,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "60% 20%",
-                    // markers: true,
-                    scrub: 3
-                });
-                mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
-                mobile_scene.to(".tit", { y: 500 }, 0)
-            },
+                "(max-width: 799px)": function () {
+                    let mobile_scene = gsap.timeline();
+                    ScrollTrigger.create({
+                        animation: mobile_scene,
+                        reversed: true,
+                        paused: true,
+                        trigger: "#main_title",
+                        start: "5% top",
+                        end: "60% 20%",
+                        // markers: true,
+                        scrub: 3
+                    });
+                    mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
+                    mobile_scene.to(".tit", { y: 500 }, 0)
+                },
 
-            "all": function () {
+                "all": function () {
 
-            }
-        });
-    };
+                }
+            });
+        };
+
         $(window).scroll(function () {
             let wScroll = $(window).scrollTop();
             if (wScroll >= chartOST) {
@@ -171,50 +174,26 @@ function startAnimation() {
             scrollAni(workBox);
             scrollAni(workTitle);
             scrollAni(workTab);
-            //animateChart
+             console.log(wScroll,blackTop,wSize);
 
-            // if(wScroll >= aboutOST + 800) {
-            //     $('#main_title').css({"position":"relative"})
+            // if (wScroll >= blackTop - 130 && wSize <= 1024) {
+            //     $('.tit').css({ "opacity": 0 });
+            //     $('.main_bg').css({ "opacity": 0 });
             // } else {
-            //     $('#main_title').css({"position":"fixed"})
+            //     $('.tit').css({ "opacity": 1 });
+            //     $('.main_bg').css({ "opacity": 1 });
             // }
 
-            if (wScroll >= blackTop + 200) {
-                $('.tit').css({ "display": "none" });
-            }
-
-            if (wScroll <= blackTop && $('.tit').css("display") == "none") {
-                setTimeout(function () {
-                    $('.tit').css({ "display": "flex" });
-                }, 700);
-            }
-
-            if (wSize > 980 && wScroll >= blackTop + 20) {
-                gsap.to(black, { fill: "#8edccd", delay: 0.3 });
+            if (wScroll >= blackTop - 150) {
+                gsap.to(black, { fill: "#8edccd"});
                 setTimeout(function () {
                     $(".title_ani").css("background", "#8edccd");
                 }, 500);
-            }
-            if (wSize > 980 && wScroll < blackTop + 20) {
-                gsap.to(black, { fill: "#00181c", delay: 0.3 });
+            }else {
+                gsap.to(black, { fill: "#00181c"});
                 setTimeout(function () {
                     $(".title_ani").css("background", "#d5eadb");
                 }, 500);
-            }
-
-            if (wSize <= 980 && wScroll >= blackTop - 200) {
-                gsap.to(black, { fill: "#8edccd", delay: 0.5 });
-                setTimeout(function () {
-                    $(".title_ani").css("background", "#8edccd");
-                }, 300);
-
-            }
-
-            if (wSize <= 980 && wScroll < blackTop - 200) {
-                gsap.to(black, { fill: "#00181c", delay: 0.5 });
-                setTimeout(function () {
-                    $(".title_ani").css("background", "#d5eadb");
-                }, 300);
             }
 
             // else if(wSize >= 480 && wScroll < blackTop - 100) {   
@@ -278,7 +257,7 @@ function startAnimation() {
             } else {
                 $("body").css("background", "#34488f");
             }
-            // console.log(wScroll);
+            console.log(wScroll,scriptOST);
 
             function animateChart() {
                 chart.each(function () {
@@ -312,7 +291,6 @@ function startAnimation() {
                     });
                 });
             }
-
         });
         scrollTrigger();
     }
@@ -442,26 +420,4 @@ function startAnimation() {
 
     });
 
-
-    // $(window).resize(function(){
-    //     let wSize = $(window).width();
-    //     if(wSize <= 1280){
-    //         $(".moutain_back01").css("bottom",wSize/42 +"%");
-    //         $(".moutain_back02").css("bottom",wSize/42 +"%");
-    //         $(".moutain_front01").css("bottom",wSize/42 +"%");
-    //         $(".moon").css("bottom",wSize/42 +"%");
-    //         $(".river").css("bottom",wSize/42 +"%");
-    //     }
-    //     if (wSize <= 960) {
-    //         $(".moutain_black").css("bottom",-113 +"%");
-    //     }
-    //     else {
-    //         $(".moutain_back01").css("bottom",0);
-    //         $(".moutain_back02").css("bottom",0);
-    //         $(".moutain_front01").css("bottom",0);
-    //         $(".moon").css("bottom",0);
-    //         $(".river").css("bottom",0);
-    //     }
-    // });
 });
-

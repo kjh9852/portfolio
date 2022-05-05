@@ -161,6 +161,9 @@ body.scroll #main_title{
 .sec1 .tit h2 {font-size: 84px; text-transform: uppercase; color: #fff; font-weight: 600; line-height: 94px; }
 .sec1 .tit h2 .text_split {overflow: hidden; display: block; height: auto;}
 .sec1 .tit h2 em span {position: relative; display: inline-block; min-width: 25px; transform: translateY(100%);}
+.main_bg {
+    transition: .5s ease-in-out;
+}
 
 /* section2 */
 .sec2 {display: flex; align-items: center; justify-content: space-between; height: 100vh; box-sizing: border-box;}
@@ -1176,7 +1179,7 @@ body.scroll #main_title{
     .moutain_front01 { bottom: 30%;}
     .back_light01 {bottom: 30%;}
     .back_light02 {bottom: 30%;}
-    .moutain_black {bottom: -120%;}
+    .moutain_black {bottom: -150%;}
     .sec4 > h2 {
         font-size: 52px;
     }
