@@ -62,7 +62,6 @@ $(function () {
     
     /*  SCENE 1 */
 function startAnimation() {
-    let start = 0;
     gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".bg_star", { y: -500, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".moutain_back01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
@@ -73,11 +72,8 @@ function startAnimation() {
     gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
     gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 0.3 })
     gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1, delay: 1 })
-    ++start;
-    return start;
 }
     //
-
     function scrollAnimation() {
 
         function sec05Height() {
@@ -89,14 +85,22 @@ function startAnimation() {
 
         var black = $('.moutain_black');
         var blackTop = black.offset().top;
+        
         var about = $('#about');
         var aboutOST = about.offset().top;
+
         var work = $('#work');
         var workOST = work.offset().top;
+
         var animation = $('#animation');
         var animationOST = animation.offset().top;
-        var script = $("#script");
-        var scriptOST = script.offset().top
+
+        const script = document.querySelector('#script');
+        var scriptOST = script.offsetTop - window.innerHeight;
+
+        var contact = $("#contact");
+        var contactOST = contact.offset().top - 200;
+
         var title = $('.sec2 > .right > .title');
         var text = $('.sec2 > .right > .text');
         var charts = $('.skil_info');
@@ -188,7 +192,7 @@ function startAnimation() {
             // } else {
             //     $('#main_title').css({"position":"fixed"})
             // }
-            
+
             if (wScroll >= 100) {
                 gsap.to(black, { fill: "#8edccd"});
                 setTimeout(function () {
@@ -227,7 +231,11 @@ function startAnimation() {
                 $(".nav li a").removeClass("active");
                 $(".nav li a:eq(3)").addClass("active");
             }
-            console.log(wScroll,scriptOST);
+            if (wScroll >= contactOST) {
+                $(".nav li a").removeClass("active");
+                $(".nav li a:eq(4)").addClass("active");
+            }
+            console.log(wScroll,contactOST);
             //nav scroll event
 
             if (wScroll >= aboutOST - 200) {
@@ -262,12 +270,12 @@ function startAnimation() {
                 $(".sec5").find(".animation_item").css("left", + 0 + "px")
             }
 
-            if (wScroll >= scriptOST) {
+            if (yOffset >= scriptOST) {
                 $("body").css("background", "#0d173c");
             } else {
                 $("body").css("background", "#34488f");
             }
-            // console.log(wScroll);
+            console.log(yOffset,scriptOST);
 
             function animateChart() {
                 chart.each(function () {
