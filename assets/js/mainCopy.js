@@ -70,14 +70,14 @@ function startAnimation() {
     gsap.fromTo(".back_light02", { opacity: 0 }, { opacity: 0.05, ease: "expo.out", duration: 4, delay: 1.7 }, 0)
     gsap.fromTo(".moutain_front01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1 })
     gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
-    gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 0.3 })
-    gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1, delay: 1 })
+    gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 1.3 })
+    gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1.5})
 }
     //
     function scrollAnimation() {
 
         function sec05Height() {
-            aniItemHeight += aniItem.scrollWidth + (window.innerHeight*1.5) ;
+            aniItemHeight += aniItem.scrollWidth + (window.innerHeight * 1.75) ;
             sec05.style.height = `${aniItemHeight}px`;
             // console.log(aniItemHeight);
         }
@@ -165,6 +165,12 @@ function startAnimation() {
     };
         $(window).scroll(function () {
             let wScroll = $(window).scrollTop();
+            yOffset = window.pageYOffset;
+            if(yOffset > 0) {
+                document.querySelector('.top_btn').classList.add('show');
+            }else {
+                document.querySelector('.top_btn').classList.remove('show');
+            }
             if (wScroll >= chartOST) {
                 if (!charts.hasClass('active')) {
                     animateChart();
@@ -275,7 +281,6 @@ function startAnimation() {
             } else {
                 $("body").css("background", "#34488f");
             }
-            console.log(yOffset,scriptOST);
 
             function animateChart() {
                 chart.each(function () {
@@ -428,6 +433,13 @@ function startAnimation() {
         });
 
     });
-
+    document.querySelector('.top_btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
 
 });

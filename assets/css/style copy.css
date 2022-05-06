@@ -597,7 +597,7 @@ footer {
 .sec1 .tit h2 em span {
     position: relative;
     display: inline-block;
-    min-width: 25px;
+    min-width: 20px;
     transform: translateY(100%);
 }
 
@@ -700,6 +700,8 @@ footer {
 }
 
 .sec2 .right .title span {
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
     font-size: 4vw;
     display: block;
 }   
@@ -1478,3 +1480,41 @@ footer {
     font-size: 12px;
 }
 /* footer */
+
+.top_btn {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    transition: .3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99;
+}
+.top_btn span {
+    position: relative;
+    display: block;
+    width: 40px; height: 40px;
+    border: solid 1px #555;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+}
+.top_btn span::before,
+.top_btn span::after {
+    position: absolute;
+    content: '';
+    top: 10px;
+    width: 1px; height: 15px;
+    background: #555;
+}
+.top_btn span::before {
+    transform: rotate(45deg);
+    left: 14px;
+}
+.top_btn span::after {
+    transform: rotate(-45deg);
+    left: 24px;
+}
+.show {
+    opacity: 1;
+    visibility: visible;
+}
+/* topBtn */
