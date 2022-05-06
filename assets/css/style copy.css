@@ -360,14 +360,13 @@ footer {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 50%;
     height: 100%;
     background: #ededed;
     transition: .5s;
     z-index: 10000;
 }
-
-#mNav-menu.active::before {
+#mNav-menu::before {
     position: absolute;
     top: 0;
     right: 0;
@@ -375,8 +374,14 @@ footer {
     width: 1920px;
     height: 937px;
     background: #000;
-    opacity: .7;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease-in-out;
     z-index: -1;
+}
+#mNav-menu.active::before {
+    opacity: 0.7;
+    visibility: visible;
 }
 
 #mNav-menu.active::after {
