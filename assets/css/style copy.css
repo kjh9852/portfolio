@@ -2,6 +2,7 @@
 
 /* body */
 body {
+    overflow-y: hidden;
     background: #34488f;
     font-family: 'Nanum Gothic', sans-serif;
     transition: .5s ease-in-out;
@@ -1523,3 +1524,7 @@ footer {
     visibility: visible;
 }
 /* topBtn */
+#ascrail2000 {
+    right: -10px !important;
+}
+/* scroll */
