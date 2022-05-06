@@ -16,7 +16,6 @@
     }
 
     .sec2 .right .text {
-        text-align: center;
         font-size: 20px;
         width: 80%;
     }
@@ -127,9 +126,9 @@
         height: 50px;
     }
 
-    #main_title {
+    /* #main_title {
         height: 130vh;
-    }
+    } */
 
     .sec1 .tit {
         display: flex;
@@ -216,6 +215,7 @@
     }
 
     .sec2 .right .text {
+        text-align: center;
         margin-left: 0;
         margin-top: 50px;
     }

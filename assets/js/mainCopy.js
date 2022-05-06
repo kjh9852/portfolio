@@ -398,6 +398,16 @@ function startAnimation() {
             });
         }
     }
+    function start(){
+        var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
+        if(!mobile) {
+            $("html").niceScroll({
+                horizrailenabled:false,
+                scrollspeed: 50,
+                mousescrollstep: 50,
+            });
+        }
+    }
 
     window.addEventListener('load', () => {
         document.body.classList.add('start');
@@ -414,6 +424,7 @@ function startAnimation() {
 
             setTimeout(() => {
                 document.body.classList.remove('start');
+                start();
             }, 3000);
         }
         preView(standardsBtn,standardsView,previewClose,previewItem);
