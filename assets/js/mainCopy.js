@@ -65,12 +65,12 @@ function startAnimation() {
     gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".bg_star", { y: -500, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
     gsap.fromTo(".moutain_back01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
-    gsap.fromTo(".moutain_back02", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 0.3 }, 2)
+    gsap.fromTo(".moutain_back02", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3}, 2)
     gsap.fromTo(".back_light01", { opacity: 0 }, { opacity: 0.08, ease: "expo.out", duration: 4, delay: 1.7 })
     gsap.fromTo(".back_light02", { opacity: 0 }, { opacity: 0.05, ease: "expo.out", duration: 4, delay: 1.7 }, 0)
     gsap.fromTo(".moutain_front01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1 })
     gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
-    gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3, delay: 1.3 })
+    gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
     gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1.5})
 }
     //
