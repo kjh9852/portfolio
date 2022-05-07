@@ -2,7 +2,6 @@
 
 /* body */
 body {
-    overflow-y: hidden;
     background: #34488f;
     font-family: 'Nanum Gothic', sans-serif;
     transition: .5s ease-in-out;
