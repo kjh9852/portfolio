@@ -51,10 +51,9 @@ $(function () {
         });
         item.mouseleave(function () {
             skilbg.removeClass(`${dataClass}`);
-            about.css({"background" : "#8edccd"});
             if(mobile){
                 skilbg.css({"background-position" : "0px 0px"});
-                about.css({"background" : dataColor});
+                about.css({"background" : "#8edccd"});
             }
         });
     });
