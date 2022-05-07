@@ -39,11 +39,13 @@ $(function () {
         var about = $('#about');
         var workbg = $('.work_bg');
         var dataColor = $(this).attr('data-color');
+        // var PcDataColor = $(this).attr('pc-data-color');
         var dataClass = $(this).attr('data-class');
         console.log(dataColor);
         console.log(dataClass);
         item.mouseover(function () {
             skilbg.addClass(`${dataClass}`);
+            // about.css({"background":PcDataColor});
             if(mobile){
                 skilbg.css({"background-position" : "0px -79px"});
                 about.css({"background" : dataColor});
@@ -51,9 +53,9 @@ $(function () {
         });
         item.mouseleave(function () {
             skilbg.removeClass(`${dataClass}`);
+            about.css({"background" : "#8edccd"});
             if(mobile){
                 skilbg.css({"background-position" : "0px 0px"});
-                about.css({"background" : "#8edccd"});
             }
         });
     });
@@ -425,7 +427,6 @@ function startAnimation() {
         document.querySelector(".load").addEventListener("transitionend", (e) => {
             document.body.removeChild(e.currentTarget);
         });
-
         if (!$("body").hasClass("before-load")) {
             setTimeout(() => {
                 scrollTo(0, 0);

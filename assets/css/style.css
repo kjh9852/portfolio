@@ -6,7 +6,9 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     transition: .5s ease-in-out;
 }
+.scroll {
 
+}
 /* container */
 .container {
     width: 100%;
@@ -631,7 +633,7 @@ footer {
     height: 640px;
     background: #000;
     margin-right: 5%;
-    box-shadow: 10px 10px 10px #66b7b3;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sec2 .left .profile .profile_box {
@@ -1526,24 +1528,5 @@ footer {
 
 .pink {
     background: url(../img/gradient_bg.png), #ff22bd;
-}
-#orange {
-    background:  #ffa238;
-}
-
-#blue {
-    background:  #0f42af;
-}
-
-#purple {
-    background:  #2e009b;
-}
-
-#yellow {
-    background: #ffd900;
-}
-
-#pink {
-    background: #ff22bd;
 }
 /* color */
