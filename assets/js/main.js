@@ -31,9 +31,11 @@ $(function () {
     });
     
     circle.find(".water").each(function () {
+        var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
         var item = $(this).parent();
         console.log(item);
         var skilbg = $(".skil_bg");
+        var skilbg2 = $(".skil_bg02");
         var about = $('#about');
         var workbg = $('.work_bg');
         var dataColor = $(this).attr('data-color');
@@ -41,10 +43,19 @@ $(function () {
         console.log(dataColor);
         console.log(dataClass);
         item.mouseover(function () {
-            skilbg.attr("id", dataClass);
+            skilbg.addClass(`${dataClass}`);
+            if(mobile){
+                skilbg.css({"background-position" : "0px -79px"});
+                about.css({"background" : dataColor});
+            }
         });
         item.mouseleave(function () {
-            skilbg.removeAttr("id", dataClass);
+            skilbg.removeClass(`${dataClass}`);
+            about.css({"background" : "#8edccd"});
+            if(mobile){
+                skilbg.css({"background-position" : "0px 0px"});
+                about.css({"background" : dataColor});
+            }
         });
     });
 
@@ -383,7 +394,7 @@ function startAnimation() {
                 current.classList.add('active');
             }
         }
-    }
+    }  
 
     function tabBtn(){
         for (let i = 0; i < workBtn.length; i++){
