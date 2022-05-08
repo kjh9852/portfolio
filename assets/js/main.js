@@ -39,13 +39,13 @@ $(function () {
         var about = $('#about');
         var workbg = $('.work_bg');
         var dataColor = $(this).attr('data-color');
-        // var PcDataColor = $(this).attr('pc-data-color');
+        var PcDataColor = $(this).attr('pc-data-color');
         var dataClass = $(this).attr('data-class');
         console.log(dataColor);
         console.log(dataClass);
         item.mouseover(function () {
             skilbg.addClass(`${dataClass}`);
-            // about.css({"background":PcDataColor});
+            about.css({"background":PcDataColor});
             if(mobile){
                 skilbg.css({"background-position" : "0px -79px"});
                 about.css({"background" : dataColor});
