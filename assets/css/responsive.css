@@ -87,6 +87,18 @@
     .sec4 .work_preview>div {
         flex-direction: column-reverse;
     }
+    .sec4 .work_preview .img_box {
+        top: 100px;
+        height: 290px;  
+    }
+        
+    .sec4 .work_preview div img {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        width: 60%;
+        transform: translate(-50%, 0%);
+    }
 
     .sec4 .work_preview div .preview_title {
         text-align: center;
@@ -95,7 +107,6 @@
     .sec4 .work_preview div .preview_text {
         margin-bottom: 50px;
     }
-
 }
 
 @media (max-width: 1024px) {
@@ -111,10 +122,6 @@
         height: 150px;
     }
 
-    .sec4 .work_box li a img {
-        width: 90px;
-        height: 90px;
-    }
 }
 
 @media (max-width :980px) {
