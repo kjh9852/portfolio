@@ -370,7 +370,9 @@
     .sec4 .site .site_wrap:nth-child(2n) .site_desc {
         height: 50vh;
     }
-
+    .sec4 .work_preview div .close {
+        top:70px; left: 20px;
+    }
     .sec5 .animation_item .animation_box:nth-of-type(2) {
         left: 35%;
     }
