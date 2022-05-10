@@ -253,7 +253,7 @@ function startAnimation() {
                 $(".nav li a").removeClass("active");
                 $(".nav li a:eq(4)").addClass("active");
             }
-            console.log(wScroll,contactOST);
+            // console.log(wScroll,contactOST);
             //nav scroll event
 
             if (wScroll >= aboutOST - 200) {
@@ -450,6 +450,7 @@ function startAnimation() {
         scrollAnimation();
         navTab(menu_btn);
         navTab(NmenuBtn);
+        
         window.addEventListener('orientationchange', () => {
             window.location.reload();
         });
