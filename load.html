@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        body {
+            background: #000;
+        }
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 100%; height: 100%;
+            overflow: hidden;
+        }
+        .loading_bg {
+            position: relative;
+            overflow: hidden;
+            width: 200px; height: 200px;
+            background: #71a299;
+            border-radius: 50%;
+        }
+        .loading_img {
+            position: absolute;
+            width: 200px; height: 200px;
+            background: url(assets/img/loading.png) no-repeat ;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        .loading_moon {
+            position: absolute;
+            width: 50%; height: 50%;
+            top: 100px; left: 0%;
+            transform: translate(50%,0);
+            background: url(assets/img/loading_moon.png) no-repeat ;
+            background-size: cover;
+            z-index: 1;
+        }
+        .loading_text{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    color: #fff;
+}
+    </style>
+</head>
+
+<body>
+    <div class="loading">
+        <div class="loading_bg">
+            <div class="loading_img"></div>
+            <div class="loading_moon"></div>
+        </div>
+        <div class="loading_text">10%</div>
+    </div>
+</body>
+
+</html>

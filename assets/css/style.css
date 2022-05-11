@@ -18,6 +18,7 @@ body {
 /* load */
 body.before-load {
     overflow: hidden;
+    background: #000;
 }
 
 body.start {
@@ -27,8 +28,52 @@ body.start {
 body.scroll #main_title {
     position: fixed;
 }
-
-.load {
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    z-index: 100;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+.loading_bg {
+    position: relative;
+    overflow: hidden;
+    width: 200px; height: 200px;
+    background: #71a299;
+    border-radius: 50%;
+}
+.loading_img {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: url(../img/loading.png) no-repeat ;
+    background-size: cover;
+    border-radius: 50%;
+    z-index: 2;
+}
+.loading_moon {
+    position: absolute;
+    width: 50%; height: 50%;
+    top: 160px; left: 0%;
+    transform: translate(50%,0);
+    background: url(../img/loading_moon.png) no-repeat ;
+    background-size: cover;
+    z-index: 1;
+}
+.loading_text{
+    position: absolute;
+    top: 63%; left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+}
+/* .load {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +85,6 @@ body.scroll #main_title {
     width: 100%;
     height: 100%;
     background: #fff;
-    opacity: 0;
     transition: .5s ease-in-out;
     z-index: 1000;
 }
@@ -58,7 +102,7 @@ body.scroll #main_title {
     stroke-dashoffset: 0;
     fill: transparent;
     animation: loadingCircle 1s infinite;
-}
+} */
 
 @keyframes spinCircle {
     100% {
@@ -80,7 +124,7 @@ body.scroll #main_title {
     }
 }
 
-.before-load .load {
+.before-load .loading {
     opacity: 1;
 }
 

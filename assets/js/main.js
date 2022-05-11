@@ -5,7 +5,7 @@ $(function () {
 
     var menu_btn = $(".nav > ul > li");
     var NmenuBtn = $('#mNav-menu > ul > li');
-    function navTab(current){
+    function navTab(current) {
         current.click(function (e) {
             e.preventDefault();
             var target = $(this);
@@ -29,7 +29,7 @@ $(function () {
         document.querySelector('#mNav-menu').classList.remove('active');
         mobileBtn.style.opacity = 1;
     });
-    
+
     circle.find(".water").each(function () {
         var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
         var item = $(this).parent();
@@ -45,17 +45,17 @@ $(function () {
         console.log(dataClass);
         item.mouseover(function () {
             skilbg.addClass(`${dataClass}`);
-            about.css({"background":PcDataColor});
-            if(mobile){
-                skilbg.css({"background-position" : "0px -79px"});
-                about.css({"background" : dataColor});
+            about.css({ "background": PcDataColor });
+            if (mobile) {
+                skilbg.css({ "background-position": "0px -79px" });
+                about.css({ "background": dataColor });
             }
         });
         item.mouseleave(function () {
             skilbg.removeClass(`${dataClass}`);
-            about.css({"background" : "#8edccd"});
-            if(mobile){
-                skilbg.css({"background-position" : "0px 0px"});
+            about.css({ "background": "#8edccd" });
+            if (mobile) {
+                skilbg.css({ "background-position": "0px 0px" });
             }
         });
     });
@@ -71,25 +71,25 @@ $(function () {
     const sec05 = document.querySelector('.sec5');
     const aniItem = document.querySelector('.animation_item');
     let aniItemHeight = 0;
-    
+
     /*  SCENE 1 */
-function startAnimation() {
-    gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
-    gsap.fromTo(".bg_star", { y: -500, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
-    gsap.fromTo(".moutain_back01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
-    gsap.fromTo(".moutain_back02", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3}, 2)
-    gsap.fromTo(".back_light01", { opacity: 0 }, { opacity: 0.08, ease: "expo.out", duration: 4, delay: 1.7 })
-    gsap.fromTo(".back_light02", { opacity: 0 }, { opacity: 0.05, ease: "expo.out", duration: 4, delay: 1.7 }, 0)
-    gsap.fromTo(".moutain_front01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1 })
-    gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
-    gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
-    gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1.5})
-}
+    function startAnimation() {
+        gsap.fromTo(".bg_top", { y: -2000, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
+        gsap.fromTo(".bg_star", { y: -500, scale: 1 }, { y: 0, scale: 1, ease: "power2.out", duration: 3 })
+        gsap.fromTo(".moutain_back01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
+        gsap.fromTo(".moutain_back02", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 }, 2)
+        gsap.fromTo(".back_light01", { opacity: 0 }, { opacity: 0.08, ease: "expo.out", duration: 4, delay: 1.7 })
+        gsap.fromTo(".back_light02", { opacity: 0 }, { opacity: 0.05, ease: "expo.out", duration: 4, delay: 1.7 }, 0)
+        gsap.fromTo(".moutain_front01", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1 })
+        gsap.fromTo(".moon", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 1.7, delay: 1.5 })
+        gsap.fromTo(".river", { y: 1000, scale: 1 }, { y: 0, scale: 1, ease: "expo.out", duration: 3 })
+        gsap.fromTo(".moutain_black", { y: 1000, scale: 1, }, { y: 0, scale: 1, ease: "back.out(2)", duration: 1.5 })
+    }
     //
     function scrollAnimation() {
 
         function sec05Height() {
-            aniItemHeight += aniItem.scrollWidth + (window.innerHeight * 1.75) ;
+            aniItemHeight += aniItem.scrollWidth + (window.innerHeight * 1.75);
             sec05.style.height = `${aniItemHeight}px`;
             // console.log(aniItemHeight);
         }
@@ -97,7 +97,7 @@ function startAnimation() {
 
         var black = $('.moutain_black');
         var blackTop = black.offset().top;
-        
+
         var about = $('#about');
         var aboutOST = about.offset().top;
 
@@ -125,62 +125,62 @@ function startAnimation() {
         var water = $('.water');
         let wSize = $(window).width();
 
-    function scrollTrigger(){
-        gsap.registerPlugin(ScrollTrigger);
-        let speed = 100;
-        ScrollTrigger.matchMedia({
-            "(min-width: 800px)": function () {
-                let scene1 = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: scene1,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "50% 10%",
-                    scrub: 5,
-                    // markers: true
-                });
-                scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
-                scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
-                scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
-                scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
-                scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
-                scene1.to(".tit", { y: 10 * speed }, 0)
-            },
+        function scrollTrigger() {
+            gsap.registerPlugin(ScrollTrigger);
+            let speed = 100;
+            ScrollTrigger.matchMedia({
+                "(min-width: 800px)": function () {
+                    let scene1 = gsap.timeline();
+                    ScrollTrigger.create({
+                        animation: scene1,
+                        reversed: true,
+                        paused: true,
+                        trigger: "#main_title",
+                        start: "5% top",
+                        end: "50% 10%",
+                        scrub: 5,
+                        // markers: true
+                    });
+                    scene1.to(".bg_top", { y: -25 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".bg_star", { y: -50 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".moutain_back01", { y: 100 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moutain_back02", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".back_light01", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".back_light02", { y: 150 * speed, scale: 1, ease: "power1.in" }, 0)
+                    scene1.to(".moutain_front01", { y: 100 * speed, scale: 0, ease: "power1.in" }, 0)
+                    scene1.to(".river", { y: 30 * speed, scale: 1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moon", { y: 100 * speed, scale: 0.1, ease: "power1.in" }, 0.01)
+                    scene1.to(".moutain_black", { y: -10 * speed, scale: 3, ease: "power1.in", transformOrigin: "center" }, 0)
+                    scene1.to(".tit", { y: 10 * speed }, 0)
+                },
 
-            "(max-width: 799px)": function () {
-                let mobile_scene = gsap.timeline();
-                ScrollTrigger.create({
-                    animation: mobile_scene,
-                    reversed: true,
-                    paused: true,
-                    trigger: "#main_title",
-                    start: "5% top",
-                    end: "60% 20%",
-                    // markers: true,
-                    scrub: 3
-                });
-                mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
-                mobile_scene.to(".tit", { y: 500 }, 0)
-            },
+                "(max-width: 799px)": function () {
+                    let mobile_scene = gsap.timeline();
+                    ScrollTrigger.create({
+                        animation: mobile_scene,
+                        reversed: true,
+                        paused: true,
+                        trigger: "#main_title",
+                        start: "5% top",
+                        end: "60% 20%",
+                        // markers: true,
+                        scrub: 3
+                    });
+                    mobile_scene.to(".moutain_black", { scale: 10, ease: "power1.in", transformOrigin: "center 20%" }, 0)
+                    mobile_scene.to(".tit", { y: 500 }, 0)
+                },
 
-            "all": function () {
+                "all": function () {
 
-            }
-        });
-    };
+                }
+            });
+        };
         $(window).scroll(function () {
             let wScroll = $(window).scrollTop();
             yOffset = window.pageYOffset;
-            if(yOffset > 0) {
+            if (yOffset > 0) {
                 document.querySelector('.top_btn').classList.add('show');
-            }else {
+            } else {
                 document.querySelector('.top_btn').classList.remove('show');
             }
             if (wScroll >= chartOST) {
@@ -212,12 +212,12 @@ function startAnimation() {
             // }
 
             if (wScroll >= 100) {
-                gsap.to(black, { fill: "#8edccd"});
+                gsap.to(black, { fill: "#8edccd" });
                 setTimeout(function () {
                     $(".title_ani").css("background", "#8edccd");
                 }, 500);
-            }else {
-                gsap.to(black, { fill: "#00181c"});
+            } else {
+                gsap.to(black, { fill: "#00181c" });
                 setTimeout(function () {
                     $(".title_ani").css("background", "#d5eadb");
                 }, 500);
@@ -259,19 +259,19 @@ function startAnimation() {
             if (wScroll >= aboutOST - 200) {
                 title.css({ "transform": "translateX(0px)", "opacity": "1" })
                 text.css({ "transform": "translateX(0px)", "opacity": "1" })
-                $('#main_title').css({"zIndex" : 5})
-            }else {
-                $('#main_title').css({"zIndex" : 6})
+                $('#main_title').css({ "zIndex": 5 })
+            } else {
+                $('#main_title').css({ "zIndex": 6 })
             }
             if (wScroll >= animationOST) {
                 sec5.addClass("active");
                 $(".animation_bg").addClass("active");
-                $('#main_title').css({"opacity": 0});
-            } 
+                $('#main_title').css({ "opacity": 0 });
+            }
             else {
                 sec5.removeClass("active");
                 $(".animation_bg").removeClass("active");
-                $('#main_title').css({"opacity": 1});
+                $('#main_title').css({ "opacity": 1 });
             }
             // console.log(wScroll,animationOST);
 
@@ -361,16 +361,16 @@ function startAnimation() {
     const rudycellView = document.querySelector('.work_preview .rudycell');
     const dutyfreeView = document.querySelector('.work_preview .dutyfree');
 
-    function preView(index,indexView,close,preview){
-        for(let i = 0; i < index.length; i++){
+    function preView(index, indexView, close, preview) {
+        for (let i = 0; i < index.length; i++) {
             index[i].addEventListener('click', (e) => {
                 e.preventDefault();
                 indexView.classList.add('active');
                 preview.classList.add('active');
             });
         }
-        for (let i = 0; i < close.length; i++){
-            close[i].addEventListener('click',(e) => {
+        for (let i = 0; i < close.length; i++) {
+            close[i].addEventListener('click', (e) => {
                 e.preventDefault();
                 indexView.classList.remove('active');
                 preview.classList.remove('active');
@@ -378,27 +378,27 @@ function startAnimation() {
         }
     }
 
-    function scrollAni(current){
+    function scrollAni(current) {
         yOffset = window.pageYOffset;
         let currentYOffset = current.offsetTop - window.innerHeight;
-         if(current.length >= 2) {
-            for(let i = 0; i < current.length; i++){
+        if (current.length >= 2) {
+            for (let i = 0; i < current.length; i++) {
                 currentYOffset = current[i].getBoundingClientRect().top + (yOffset - window.innerHeight);
-                if(yOffset >= currentYOffset) {
+                if (yOffset >= currentYOffset) {
                     current[i].classList.add('active');
                 }
             }
         }
-        if(currentYOffset < 0) {
+        if (currentYOffset < 0) {
             currentYOffset = current.getBoundingClientRect().top + (yOffset - window.innerHeight);
-            if(yOffset >= currentYOffset){
+            if (yOffset >= currentYOffset) {
                 current.classList.add('active');
             }
         }
-    }  
+    }
 
-    function tabBtn(){
-        for (let i = 0; i < workBtn.length; i++){
+    function tabBtn() {
+        for (let i = 0; i < workBtn.length; i++) {
             workBtn[i].addEventListener('click', (e) => {
                 for (let j = 0; j < workBtn.length; j++) {
                     workBtn[j].classList.remove('active');
@@ -410,24 +410,57 @@ function startAnimation() {
             });
         }
     }
-    function start(){
+    function start() {
         var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
-        if(!mobile) {
+        if (!mobile) {
             $("html").niceScroll({
-                horizrailenabled:false,
+                horizrailenabled: false,
                 scrollspeed: 50,
                 mousescrollstep: 50,
             });
         }
     }
+    function loading() {
+        let $loading = $('.loading');
+        loadingText = $(".loading_text");
+        loadingMoon = $(".loading_moon");
+
+        imgLoad = imagesLoaded("body"),
+            imgTotal = imgLoad.images.length,
+            imgLoaded = 0,
+            imgCurrent = 0,
+            progressTimer = setInterval(updateProgress, 1000 / 60);
+
+        imgLoad.on('progress', function () {
+            imgLoaded++;
+        });
+
+        function updateProgress() {
+            let target = (imgLoaded / imgTotal) * 100;
+            imgCurrent += (target - imgCurrent) * 0.1;
+            loadingText.text(Math.floor(imgCurrent) + "%");
+            loadingMoon.css({ "top": 140 - imgCurrent })
+
+            if (imgCurrent > 99) {
+                imgCurrent = 100;
+            }
+            
+            if (imgCurrent >= 100) {
+                clearInterval(0);
+                $loading.on('transitionend',function(){
+                    $loading.remove();
+                });
+            }
+
+
+        }
+    }
+    loading();
 
     window.addEventListener('load', () => {
         document.body.classList.add('start');
         document.body.classList.remove("before-load");
-        document.querySelector(".load").addEventListener("transitionend", (e) => {
-            document.body.removeChild(e.currentTarget);
-        });
-        if (!$("body").hasClass("before-load")) {
+        if ($("body").hasClass("start")) {
             setTimeout(() => {
                 scrollTo(0, 0);
                 startAnimation();
@@ -438,19 +471,19 @@ function startAnimation() {
                 start();
             }, 3000);
         }
-        preView(standardsBtn,standardsView,previewClose,previewItem);
-        preView(responsiveBtn,responsiveView,previewClose,previewItem);
-        preView(megaBtn,megaView,previewClose,previewItem);
-        preView(ediyaBtn,ediyaView,previewClose,previewItem);
-        preView(tliBtn,tliView,previewClose,previewItem);
-        preView(appleBtn,appleView,previewClose,previewItem);
-        preView(rudycellBtn,rudycellView,previewClose,previewItem);
-        preView(dutyfreeBtn,dutyfreeView,previewClose,previewItem);
+        preView(standardsBtn, standardsView, previewClose, previewItem);
+        preView(responsiveBtn, responsiveView, previewClose, previewItem);
+        preView(megaBtn, megaView, previewClose, previewItem);
+        preView(ediyaBtn, ediyaView, previewClose, previewItem);
+        preView(tliBtn, tliView, previewClose, previewItem);
+        preView(appleBtn, appleView, previewClose, previewItem);
+        preView(rudycellBtn, rudycellView, previewClose, previewItem);
+        preView(dutyfreeBtn, dutyfreeView, previewClose, previewItem);
         tabBtn();
         scrollAnimation();
         navTab(menu_btn);
         navTab(NmenuBtn);
-        
+
         window.addEventListener('orientationchange', () => {
             window.location.reload();
         });
@@ -464,5 +497,4 @@ function startAnimation() {
             behavior: 'smooth'
         });
     });
-
 });
