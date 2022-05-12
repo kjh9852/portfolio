@@ -443,13 +443,13 @@ $(function () {
 
             if (imgCurrent > 99) {
                 imgCurrent = 100;
+                $loading.on('transitionend',function(){
+                    $loading.remove();
+                });
             }
             
             if (imgCurrent >= 100) {
                 clearInterval(0);
-                $loading.on('transitionend',function(){
-                    $loading.remove();
-                });
             }
 
 
