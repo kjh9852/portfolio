@@ -18,7 +18,7 @@ body {
 /* load */
 body.before-load {
     overflow: hidden;
-    background: #000;
+    background: #1a414b;
 }
 
 body.start {
@@ -69,7 +69,7 @@ body.scroll #main_title {
 }
 .loading_text{
     position: absolute;
-    top: 63%; left: 50%;
+    top: 65%; left: 50%;
     transform: translate(-50%,-50%);
     color: #fff;
 }
