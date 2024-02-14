@@ -65,7 +65,7 @@ $(function () {
         let txt = $(this).text();
         let split = txt.split("").join("</span><span aria-hidden='true'>")
         split = "<span aria-hidden='true'>" + split + "</span>"
-        $(this).html(split).attr("aira-label", txt);
+        $(this).html(split).attr("aria-label", txt);
     });
 
     const sec05 = document.querySelector('.sec5');
@@ -333,7 +333,8 @@ $(function () {
     $(document).ready(function ($) {
         gsap.to($(this).find("em.text_split span"), 0.5, { scale: 1, y: 0, stagger: { from: "start", each: 0.08 }, opacity: 1, ease: Power4.out });
     });
-    const workTitle = document.querySelector('.sec4 > h2');
+    
+    const workTitle = document.querySelector('.sec4 > h1');
 
     const workBox = document.querySelector('.work_box');
     const workList = document.querySelectorAll('.work_box > div > ul');
@@ -410,6 +411,7 @@ $(function () {
             });
         }
     }
+
     function start() {
         var mobile = (/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera);
         if (!mobile) {
@@ -420,16 +422,17 @@ $(function () {
             });
         }
     }
+
     function loading() {
-        let $loading = $('.loading');
-        loadingText = $(".loading_text");
-        loadingMoon = $(".loading_moon");
+        const $loading = $('.loading');
+        const loadingText = $(".loading_text");
+        const loadingMoon = $(".loading_moon");
 
         imgLoad = imagesLoaded("body"),
-            imgTotal = imgLoad.images.length,
-            imgLoaded = 0,
-            imgCurrent = 0,
-            progressTimer = setInterval(updateProgress, 1000 / 60);
+                imgTotal = imgLoad.images.length,
+                imgLoaded = 0,
+                imgCurrent = 0,
+                progressTimer = setInterval(updateProgress, 1000 / 60)
 
         imgLoad.on('progress', function () {
             imgLoaded++;
@@ -441,6 +444,7 @@ $(function () {
             loadingText.text(Math.floor(imgCurrent) + "%");
             loadingMoon.css({ "top": 140 - imgCurrent })
 
+
             if (imgCurrent > 99) {
                 imgCurrent = 100;
 
@@ -450,6 +454,7 @@ $(function () {
                 clearInterval(0);
             }
         }
+        
         if(updateProgress){
             $loading.on('transitionend',function(){
                 $loading.remove();
@@ -457,11 +462,13 @@ $(function () {
         }
 
     }
-    loading();
 
     window.addEventListener('load', () => {
+        loading();
+        
         document.body.classList.add('start');
         document.body.classList.remove("before-load");
+
         if ($("body").hasClass("start")) {
             setTimeout(() => {
                 scrollTo(0, 0);

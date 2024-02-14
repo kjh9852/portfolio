@@ -6,9 +6,7 @@ body {
     font-family: 'Nanum Gothic', sans-serif;
     transition: .5s ease-in-out;
 }
-.scroll {
 
-}
 /* container */
 .container {
     width: 100%;
@@ -1206,7 +1204,7 @@ footer {
 
 .sec4 .work_preview div .preview_title {}
 
-.sec4 .work_preview div .preview_title h1 {
+.sec4 .work_preview div .preview_title h2 {
     font-weight: 300;
     font-size: 32px;
 }
@@ -1289,7 +1287,7 @@ footer {
     left: 0;
 }
 
-.sec5 .animation_item .animation_tit h2 {
+.sec5 .animation_item .animation_tit h1 {
     text-transform: uppercase;
     font-size: 84px;
     font-weight: 600;
@@ -1399,7 +1397,7 @@ footer {
     padding: 100px 0;
 }
 
-.sec6 .sec6_tit h2 {
+.sec6 .sec6_tit h1 {
     text-transform: uppercase;
     font-size: 84px;
     font-weight: 600;
